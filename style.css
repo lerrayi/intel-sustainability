@@ -1,1 +1,162 @@
 /* Add your CSS here */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body {
+  width: 100vw;
+  background-color: lightsteelblue;
+  font-family: 'Roboto', Arial, sans-serif; /* Use Roboto for body text */
+}
+
+header {
+  background-color: #222;
+  display: flex;              /* Use flexbox for horizontal layout */
+  align-items: center;        /* Vertically center items */
+  justify-content: space-between; /* Space between logo and navbar */
+  position: relative;
+  width: 100%;               /* Make header stretch full viewport width */
+}
+
+/* Style the logo to stay on the left */
+#logo {
+    width: 100px;
+    height: auto;
+    margin: 20px;
+}
+
+/* Center the heading in the remaining space */
+header h1 {
+    /* Align the heading to the right */
+    position: static;         /* Use normal flow, not absolute */
+    text-align: right;        /* Align text to the right */
+    color: #fff;
+    font-size: 2em;
+    width: auto;
+    margin: 0;
+    font-family: 'Montserrat', Arial, sans-serif; /* Use Montserrat for headings */
+}
+
+.timeline {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;             /* Limit timeline width to fit 3 milestones */
+    margin: 0 auto;               /* Center the timeline on the page */
+    overflow: hidden;
+}
+
+.milestone {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 0 16px; /* Add horizontal space between milestones */
+    max-width: 20%;
+    box-sizing: border-box;
+  }
+
+.milestone img {
+    width: 100%;
+    height: auto;
+  }
+
+.milestone h2 {
+    font-size: 1.5em;
+    color: #333;
+  }
+
+/* Navbar styles */
+.navbar {
+  position: relative;           /* Needed for dropdown positioning */
+  display: flex;                /* Use flex to allow stretching */
+  height: 100%;                 /* Make navbar fill header height */
+  align-items: stretch;         /* Stretch children to fill height */
+}
+
+.navbar-content {
+  color: #fff;
+  /* Show links inline */
+  display: flex;
+  gap: 10px;  /* Space between links */
+  align-items: center;
+  height: 100%;
+  align-self: stretch; /* Stretch navbar-content to fill navbar (and header) height */
+  margin: 20px;
+}
+
+/* Make links inline for desktop */
+.navbar-content a {
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: #fff;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: inline-block; /* Show links side by side */
+}
+
+.navbar-content a:hover {
+  color: lightgreen;
+  text-decoration: underline;
+}
+
+.dropbtn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Dropdown button styles */
+  .navbar {
+    /* Keep navbar inside header, aligned to the right */
+    position: static;
+    margin-left: auto; /* Push navbar to the far right in the flex header */
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .dropbtn {
+    display: block;
+    background-color: #444;
+    color: #fff;
+    padding: 10px 10px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 0;
+    box-sizing: border-box;
+    align-self: center;
+  }
+
+  /* Navbar content (hidden by default) */
+  .navbar-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #444;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+  }
+
+  /* Navbar links */
+  .navbar-content a {
+    color: #fff;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  /* Show navbar content on hover */
+  .navbar:hover .navbar-content {
+    display: block;
+  }
+
+  /* Optional: highlight link on hover */
+  .navbar-content a:hover {
+    background-color: #555;
+  }
+}
