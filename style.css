@@ -7,35 +7,41 @@
 
 body {
   width: 100vw;
-  background-color: lightsteelblue;
-  color: #222;
+  min-height: 100vh; /* Make sure background covers the whole screen */
+  /* Use a blue gradient background with a softer dark blue instead of black */
+  background: linear-gradient(135deg, #1565c0 0%, #2d3a4a 60%, #22272e 100%);
+  background-repeat: no-repeat;  /* Prevent background from repeating */
+  background-attachment: fixed;  /* Keep background fixed during scroll */
+  color: #fff;                    /* White text for everything outside milestones */
   font-family: 'Roboto', Arial, sans-serif; /* Use Roboto for body text */
-  text-align: center; /* Center all content in the body */
+  text-align: center;             /* Center all content in the body */
 }
 
 header {
-  background-color: #222;
-  display: flex;              /* Use flexbox for horizontal layout */
-  align-items: center;        /* Vertically center items */
+  background-color: #22272e;      /* Soft black for header */
+  display: flex;                  /* Use flexbox for horizontal layout */
+  align-items: center;            /* Vertically center items */
   justify-content: space-between; /* Space between logo and navbar */
   position: relative;
-  width: 100%;               /* Make header stretch full viewport width */
+  width: 100%;                    /* Make header stretch full viewport width */
+  padding: 10px;
 }
 
 #logo {
     width: 100px;
     height: auto;
-    margin: 20px;
 }
 
 h1 {
     text-align: center;
-    font-size: 2.6em; /* Make the heading much larger */
-    font-weight: bold; /* Make the heading bold */
-    margin: 24px 0 20px 0; /* Add space above and below */
-    letter-spacing: 2px;   /* Add space between letters for effect */
+    font-size: 2.2em;                  /* Make the heading larger */
+    font-weight: bold;                 /* Make the heading bold */
+    margin: 24px auto 20px auto;      /* Center and add space above/below */
+    letter-spacing: 2px;               /* Add space between letters for effect */
     font-family: 'Montserrat', Arial, sans-serif; /* Use Montserrat for headings */
-    text-shadow: 2px 2px 8px #b0c4de; /* Add a soft shadow for emphasis */
+    color: #fff;                    /* White heading text */
+    text-shadow: 1px 2px 8px #1976d2;  /* Slightly deeper blue shadow */
+    max-width: 800px;           /* Match timeline width */
 }
 
 .timeline {
@@ -43,40 +49,50 @@ h1 {
     flex-direction: row;
     justify-content: flex-start; /* Start milestones from the left */
     width: 100%;
-    max-width: 800px; /* Limit timeline width to fit about 3 milestones */
-    margin: 0 auto;    /* Center the timeline on the page */
-    overflow-x: auto;  /* Allow horizontal scrolling if there are too many milestones */
-    overflow-y: visible; /* Show full height of milestones */
+    max-width: 800px;            /* Match h1 and intro width */
+    margin: 0 auto;              /* Center the timeline on the page */
+    overflow-x: auto;            /* Allow horizontal scrolling if there are too many milestones */
+    overflow-y: visible;         /* Show full height of milestones */
     scroll-snap-type: x mandatory; /* Enable horizontal snap scrolling */
-    scroll-padding-left: 16px; /* Make sure the first milestone is fully visible */
+    scroll-padding-left: 16px;     /* Make sure the first milestone is fully visible */
 }
 
 .milestone {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    padding: 20px;           /* Make the box taller by adding more padding */
-    margin: 0 16px;          /* Space between milestones */
-    max-width: 28%;          /* Make the box wider */
-    min-width: 250px;        /* Set a minimum width for small screens */
-    min-height: 250px;       /* Make the box taller */
+    color: #22272e;                  /* Soft black text for readability */
+    background-color: #ffffff;       /* Soft white card background */
+    border: 2px solid #90caf9;       /* Blue accent border */
+    padding: 20px;
+    margin: 0 16px;
+    max-width: 28%;
+    min-width: 250px;
+    min-height: 250px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 16px; /* Adds vertical space between children */
-    scroll-snap-align: start; /* Snap each milestone to the start when scrolling */
-  }
+    gap: 16px;
+    scroll-snap-align: start;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px #e3eafc55; /* Soft blue shadow for depth */
+}
 
 .milestone img {
     width: 100%;
     height: auto;
-  }
+    border-radius: 6px;              /* Slightly rounded images */
+    border: 1px solid #e3eafc;       /* Subtle blue border for images */
+}
+
+.milestone h2,
+.milestone h3,
+.milestone p,
+.milestone li {
+    color: #22272e; /* Make all text inside milestones soft black */
+}
 
 .milestone h2 {
-    font-size: 1.5em;
-    color: #333;
-  }
+    font-size: 2em;                /* Larger font for milestone titles */
+}
 
-/* Navbar styles */
 .navbar {
   position: relative;           /* Needed for dropdown positioning */
   display: flex;                /* Use flex to allow stretching */
@@ -86,26 +102,26 @@ h1 {
 
 .navbar-content {
   color: #fff;
-  /* Show links inline */
   display: flex;
-  gap: 10px;  /* Space between links */
+  gap: 10px;                    /* Space between links */
   align-items: center;
   height: 100%;
-  align-self: stretch; /* Stretch navbar-content to fill navbar (and header) height */
-  margin: 20px;
+  align-self: stretch;
 }
 
-/* Make links inline for desktop */
 .navbar-content a {
   font-family: 'Montserrat', Arial, sans-serif;
-  color: #fff;
+  color: #fff;                  /* White text by default */
   padding: 10px 16px;
   text-decoration: none;
-  display: inline-block; /* Show links side by side */
+  display: inline-block;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
 }
 
 .navbar-content a:hover {
-  color: lightgreen;
+  color: #1565c0;               /* Blue text on hover */
+  background-color: #fff;       /* White background on hover for contrast */
   text-decoration: underline;
 }
 
@@ -117,29 +133,38 @@ h1 {
   display: none;
 }
 
+#intro {
+  font-size: 1.3em;
+  /* Remove background color and border radius for a transparent look */
+  background: none;
+  color: #fff;                  /* White text for intro */
+  padding: 18px 24px;
+  margin: 24px auto 28px auto;  /* Center and add space above/below */
+  max-width: 800px;             /* Match timeline and h1 width */
+  box-shadow: 0 2px 8px #0d47a133;
+  font-weight: 500;
+}
+
 @media (max-width: 768px) {
   .timeline {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Center milestones horizontally */
+    align-items: center;
     width: 90%;
     overflow: hidden;
   }
 
-  /* Add vertical space between milestones on small screens */
   .milestone {
     margin: 16px 0;
-    width: 100%;         /* Make milestones fill the timeline width */
-    max-width: none;     /* Remove max-width restriction */
-    min-width: 0;        /* Remove min-width restriction */
+    width: 100%;
+    max-width: none;
+    min-width: 0;
   }
 
-  /* Dropdown button styles */
   .navbar {
-    /* Keep navbar inside header, aligned to the right */
     position: static;
-    margin-left: auto; /* Push navbar to the far right in the flex header */
+    margin-left: auto;
     height: 100%;
     display: flex;
     align-items: center;
@@ -147,7 +172,7 @@ h1 {
   
   .dropbtn {
     display: block;
-    background-color: #444;
+    background-color: #1565c0;   /* Blue accent for mobile menu */
     color: #fff;
     padding: 10px 10px;
     font-size: 1em;
@@ -159,33 +184,30 @@ h1 {
     align-self: center;
   }
 
-  /* Navbar content (hidden by default) */
   .navbar-content {
     display: none;
     position: absolute;
     right: 0;
-    background-color: #444;
+    background-color: #22272e;  /* Soft black for dropdown */
     min-width: 120px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     border-radius: 4px;
   }
 
-  /* Navbar links */
   .navbar-content a {
-    color: #fff;
+    color: #90caf9;
     padding: 10px 16px;
     text-decoration: none;
     display: block;
   }
 
-  /* Show navbar content on hover */
   .navbar:hover .navbar-content {
     display: block;
   }
 
-  /* Highlight link on hover */
   .navbar-content a:hover {
-    background-color: #555;
+    background-color: #1565c0;
+    color: #fff;
   }
 }
