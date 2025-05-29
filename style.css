@@ -8,7 +8,9 @@
 body {
   width: 100vw;
   background-color: lightsteelblue;
+  color: #222;
   font-family: 'Roboto', Arial, sans-serif; /* Use Roboto for body text */
+  text-align: center; /* Center all content in the body */
 }
 
 header {
@@ -20,42 +22,48 @@ header {
   width: 100%;               /* Make header stretch full viewport width */
 }
 
-/* Style the logo to stay on the left */
 #logo {
     width: 100px;
     height: auto;
     margin: 20px;
 }
 
-/* Center the heading in the remaining space */
-header h1 {
-    /* Align the heading to the right */
-    position: static;         /* Use normal flow, not absolute */
-    text-align: right;        /* Align text to the right */
-    color: #fff;
-    font-size: 2em;
-    width: auto;
-    margin: 0;
+h1 {
+    text-align: center;
+    font-size: 2.6em; /* Make the heading much larger */
+    font-weight: bold; /* Make the heading bold */
+    margin: 24px 0 20px 0; /* Add space above and below */
+    letter-spacing: 2px;   /* Add space between letters for effect */
     font-family: 'Montserrat', Arial, sans-serif; /* Use Montserrat for headings */
+    text-shadow: 2px 2px 8px #b0c4de; /* Add a soft shadow for emphasis */
 }
 
 .timeline {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start; /* Start milestones from the left */
     width: 100%;
-    max-width: 900px;             /* Limit timeline width to fit 3 milestones */
-    margin: 0 auto;               /* Center the timeline on the page */
-    overflow: hidden;
+    max-width: 800px; /* Limit timeline width to fit about 3 milestones */
+    margin: 0 auto;    /* Center the timeline on the page */
+    overflow-x: auto;  /* Allow horizontal scrolling if there are too many milestones */
+    overflow-y: visible; /* Show full height of milestones */
+    scroll-snap-type: x mandatory; /* Enable horizontal snap scrolling */
+    scroll-padding-left: 16px; /* Make sure the first milestone is fully visible */
 }
 
 .milestone {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
-    padding: 10px;
-    margin: 0 16px; /* Add horizontal space between milestones */
-    max-width: 20%;
+    padding: 20px;           /* Make the box taller by adding more padding */
+    margin: 0 16px;          /* Space between milestones */
+    max-width: 28%;          /* Make the box wider */
+    min-width: 250px;        /* Set a minimum width for small screens */
+    min-height: 250px;       /* Make the box taller */
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Adds vertical space between children */
+    scroll-snap-align: start; /* Snap each milestone to the start when scrolling */
   }
 
 .milestone img {
@@ -105,7 +113,28 @@ header h1 {
   display: none;
 }
 
+.description {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Center milestones horizontally */
+    width: 90%;
+    overflow: hidden;
+  }
+
+  /* Add vertical space between milestones on small screens */
+  .milestone {
+    margin: 16px 0;
+    width: 100%;         /* Make milestones fill the timeline width */
+    max-width: none;     /* Remove max-width restriction */
+    min-width: 0;        /* Remove min-width restriction */
+  }
+
   /* Dropdown button styles */
   .navbar {
     /* Keep navbar inside header, aligned to the right */
@@ -155,7 +184,7 @@ header h1 {
     display: block;
   }
 
-  /* Optional: highlight link on hover */
+  /* Highlight link on hover */
   .navbar-content a:hover {
     background-color: #555;
   }
