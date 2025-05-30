@@ -47,14 +47,19 @@ h1 {
 .timeline {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start; /* Start milestones from the left */
+    justify-content: flex-start;
     width: 100%;
-    max-width: 800px;            /* Match h1 and intro width */
-    margin: 0 auto;              /* Center the timeline on the page */
-    overflow-x: auto;            /* Allow horizontal scrolling if there are too many milestones */
-    overflow-y: visible;         /* Show full height of milestones */
-    scroll-snap-type: x mandatory; /* Enable horizontal snap scrolling */
-    scroll-padding-left: 16px;     /* Make sure the first milestone is fully visible */
+    max-width: 800px;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 16px;
+    /* Hide the scrollbar for all browsers */
+    scrollbar-width: none;      /* Firefox */
+    -ms-overflow-style: none;   /* IE and Edge */
+}
+.timeline::-webkit-scrollbar {
+    display: none;              /* Chrome, Safari, Opera */
 }
 
 .milestone {
@@ -86,7 +91,7 @@ h1 {
 .milestone h3,
 .milestone p,
 .milestone li {
-    color: #22272e; /* Make all text inside milestones soft black */
+  color: #22272e; /* Make all text inside milestones soft black */
 }
 
 .milestone h2 {
@@ -145,6 +150,49 @@ h1 {
   font-weight: 500;
 }
 
+#footer {
+  background-color: #22272e;
+  color: #fff;
+  width: 100%;
+  padding: 12px 0;
+  text-align: center;
+  font-size: 1em;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+/* Style for the timeline arrow buttons */
+#arrow-left,
+#arrow-right {
+  position: static;            /* Remove relative positioning */
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 2em;
+  background: #22272e;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  z-index: 2;
+  margin: 0 auto;
+}
+
+/* Center the arrows and timeline together in a flex container */
+.timeline-arrows-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* On small screens, make arrows full width and place them above/below timeline */
 @media (max-width: 768px) {
   .timeline {
     display: flex;
@@ -153,6 +201,15 @@ h1 {
     align-items: center;
     width: 90%;
     overflow: hidden;
+  }
+
+  #arrow-left,
+  #arrow-right {
+    display: none;  /* Hide arrows on mobile */
+  }
+
+  #footer {
+    position: relative; /* Change to relative for mobile */
   }
 
   .milestone {
