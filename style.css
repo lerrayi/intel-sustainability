@@ -81,10 +81,11 @@ h1 {
 }
 
 .milestone img {
-    width: 100%;
-    height: auto;
-    border-radius: 6px;              /* Slightly rounded images */
-    border: 1px solid #e3eafc;       /* Subtle blue border for images */
+    width: 100%;                  /* Image fills the card width */
+    height: 13em;                /* Fixed height for all images */
+    object-fit: cover;            /* Crop image to fill area, keep aspect ratio */
+    border-radius: 6px;           /* Slightly rounded images */
+    border: 1px solid #e3eafc;    /* Subtle blue border for images */
 }
 
 .milestone h2,
