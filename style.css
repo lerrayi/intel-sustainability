@@ -6,19 +6,37 @@
   }
 
 body {
-  width: 100vw;
   min-height: 100vh; /* Make sure background covers the whole screen */
   /* Use a blue gradient background with a softer dark blue instead of black */
-  background: 
-    linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), /* Dark overlay */
-    url("img/cyber_sprout.png");                        /* Background image */
-  background-size: cover;           /* Make the image cover the area */
-  background-position: center;
-  background-repeat: no-repeat;
   color: #fff;                    /* White text for everything outside milestones */
   font-family: 'Roboto', Arial, sans-serif; /* Use Roboto for body text */
   text-align: center;             /* Center all content in the body */
   letter-spacing: 1px;
+}
+
+#timeline-page {
+  background: 
+      linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), /* Dark overlay */
+      url("img/cyber_sprout.png");                        /* Background image */
+    background-size: cover;           /* Make the image cover the area */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#home-page {
+  background: 
+    linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), /* Dark overlay */
+    url("img/wetlands.jpg");                        /* Background image */
+  background-size: cover;           /* Make the image cover the area */
+  background-position: center;
+}
+
+#mission-page {
+  background: linear-gradient(#1565c0 0%, #0f4775 100%); /* Soft blue gradient */
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', Arial, sans-serif; /* Use Montserrat for headings */
 }
 
 header {
@@ -69,7 +87,7 @@ h1 {
 }
 
 .milestone {
-    color: #22272e;                  /* Soft black text for readability */
+    color: #111;                  /* Soft black text for readability */
     background-color: #ffffff;       /* Soft white card background */
     border: 2px solid #90caf9;       /* Blue accent border */
     padding: 20px;
@@ -197,15 +215,22 @@ h1 {
   font-weight: 500;
 }
 
-#footer {
+#footer, #short-footer {
   background-color: #111;
   color: #fff;
   width: 100%;
-  padding: 12px 0;
+  padding: 12px 12px;
   text-align: center;
   font-size: 1em;
   left: 0;
   bottom: 0;
+}
+
+#footer {
+  position: relative;
+}
+
+#short-footer {
   position: fixed;
 }
 
@@ -288,24 +313,39 @@ h1 {
   border-radius: 10px;
 }
 
-#short-footer {
-  background-color: #111;
-  color: #fff;
-  width: 100%;
-  padding: 12px 0;
-  text-align: center;
-  font-size: 1em;
-  left: 0;
-  bottom: 0;
-  position: fixed;
+.story {
+  background-color: rgba(0, 0, 0, 0.75);
+  margin: 15px auto;                /* Center with space above/below */
+  max-width: 800px;                 /* Limit width for readability */
+  border-radius: 20px;
+  padding-bottom: 16px;
 }
 
-#home-page {
-  background: 
-    linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), /* Dark overlay */
-    url("img/wetlands.jpg");                        /* Background image */
-  background-size: cover;           /* Make the image cover the area */
-  background-position: center;
+.story > * {
+  margin: 16px auto;
+}
+
+.leader-image {
+  margin: 16px auto 5px auto;;
+  width: 100%;
+  height: auto;
+  max-width: 250px;                /* Limit image width for readability */
+  border-radius: 50%;
+}
+
+.leader-quote {
+  border-top: 2px solid #90caf9; /* Blue top border for quotes */
+  border-bottom: 2px solid #90caf9; /* Blue bottom border for quotes */
+  padding: 12px 20px;              /* Padding for quotes */
+  margin: 16px 0px;
+}
+
+#story-body > * {
+  margin: 16px 16px;
+}
+
+#story-highlight {
+  text-shadow: 1px 2px 8px #1976d2;
 }
 
 /* On small screens, make arrows full width and place them above/below timeline */
@@ -324,7 +364,7 @@ h1 {
     display: none;  /* Hide arrows on mobile */
   }
 
-  #footer {
+  #footer, #short-footer {
     position: relative; /* Change to relative for mobile */
   }
 
