@@ -9,7 +9,7 @@ body {
   width: 100vw;
   min-height: 100vh; /* Make sure background covers the whole screen */
   /* Use a blue gradient background with a softer dark blue instead of black */
-  background: linear-gradient(135deg, #1565c0 0%, #2d3a4a 60%, #22272e 100%);
+  background: linear-gradient(135deg, #1565c0 0%, #062756 100%);
   background-repeat: no-repeat;  /* Prevent background from repeating */
   background-attachment: fixed;  /* Keep background fixed during scroll */
   color: #fff;                    /* White text for everything outside milestones */
