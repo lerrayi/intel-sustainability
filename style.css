@@ -327,6 +327,7 @@ h1 {
   height: auto;
   max-width: 250px;                /* Limit image width for readability */
   border-radius: 50%;
+  box-shadow: 0px 0px 4px #1976d2;
 }
 
 .leader-quote {
