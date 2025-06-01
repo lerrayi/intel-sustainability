@@ -112,17 +112,21 @@ h1 {
 
 .milestone img {
     width: 100%;                  /* Image fills the card width */
-    height: 12em;                /* Fixed height for all images */
+    height: 10em;                /* Fixed height for all images */
     object-fit: cover;            /* Crop image to fill area, keep aspect ratio */
     border-radius: 6px;           /* Slightly rounded images */
     border: 1px solid #e3eafc;    /* Subtle blue border for images */
+    margin-top: auto;
+}
+
+.milestone h2 {
+  text-shadow: 1px 1px 2px #1976d2;
 }
 
 .milestone h2,
 .milestone h3,
-.milestone p,
-.milestone li {
-  color: #22272e; /* Make all text inside milestones soft black */
+.milestone p, {
+  color: #111; /* Make all text inside milestones soft black */
 }
 
 .milestone h2 {
