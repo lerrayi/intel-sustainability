@@ -14,7 +14,7 @@ body {
   letter-spacing: 1px;
 }
 
-#timeline-page {
+#timeline-page, #story-page {
   background: 
       linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), /* Dark overlay */
       url("img/cyber_sprout.png");                        /* Background image */
@@ -29,10 +29,6 @@ body {
     url("img/wetlands.jpg");                        /* Background image */
   background-size: cover;           /* Make the image cover the area */
   background-position: center;
-}
-
-#mission-page {
-  background: linear-gradient(#1565c0 0%, #0f4775 100%); /* Soft blue gradient */
 }
 
 h1, h2, h3 {
@@ -315,7 +311,7 @@ h1 {
 
 .story {
   background-color: rgba(0, 0, 0, 0.75);
-  margin: 15px auto;                /* Center with space above/below */
+  margin: 20px auto;                /* Center with space above/below */
   max-width: 800px;                 /* Limit width for readability */
   border-radius: 20px;
   padding-bottom: 16px;
