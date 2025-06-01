@@ -211,7 +211,7 @@ h1 {
   font-weight: 500;
 }
 
-#footer, #short-footer {
+#footer, #short-footer, #timeline-footer {
   background-color: #111;
   color: #fff;
   width: 100%;
@@ -222,11 +222,11 @@ h1 {
   bottom: 0;
 }
 
-#footer {
-  position: relative;
+#short-footer {
+  position: fixed;
 }
 
-#short-footer {
+#timeline-footer {
   position: fixed;
 }
 
@@ -311,7 +311,7 @@ h1 {
 
 .story {
   background-color: rgba(0, 0, 0, 0.75);
-  margin: 20px auto;                /* Center with space above/below */
+  margin: 50px auto;                /* Center with space above/below */
   max-width: 800px;                 /* Limit width for readability */
   border-radius: 20px;
   padding-bottom: 16px;
@@ -359,10 +359,6 @@ h1 {
   #arrow-left,
   #arrow-right {
     display: none;  /* Hide arrows on mobile */
-  }
-
-  #footer, #short-footer {
-    position: relative; /* Change to relative for mobile */
   }
 
   .milestone {
@@ -415,6 +411,10 @@ h1 {
 
   .navbar:hover .navbar-content {
     display: block;
+  }
+
+  #timeline-footer {
+    position: relative;
   }
 }
 
