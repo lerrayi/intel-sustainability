@@ -9,9 +9,12 @@ body {
   width: 100vw;
   min-height: 100vh; /* Make sure background covers the whole screen */
   /* Use a blue gradient background with a softer dark blue instead of black */
-  background: linear-gradient(135deg, #1565c0 0%, #062756 100%);
-  background-repeat: no-repeat;  /* Prevent background from repeating */
-  background-attachment: fixed;  /* Keep background fixed during scroll */
+  background: 
+    linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), /* Dark overlay */
+    url("img/cyber_sprout.png");                        /* Background image */
+  background-size: cover;           /* Make the image cover the area */
+  background-position: center;
+  background-repeat: no-repeat;
   color: #fff;                    /* White text for everything outside milestones */
   font-family: 'Roboto', Arial, sans-serif; /* Use Roboto for body text */
   text-align: center;             /* Center all content in the body */
@@ -236,6 +239,75 @@ h1 {
   margin-bottom: 10px;
 }
 
+/* Hero section header */
+.hero h1 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 2em;
+  color: #fff;
+  margin: 0px auto 12px auto;
+  text-shadow: 1px 2px 8px #1976d2;
+}
+
+/* Hero section description */
+.hero p {
+  font-size: 1.2em;
+  color: #e3eafc;
+  margin-bottom: 20px;
+}
+
+/* Call to action button */
+.cta-button {
+  display: inline-block;
+  padding: 14px 28px;
+  background-color: #1565c0;    /* Intel blue */
+  color: #fff;
+  font-size: 1.1em;
+  font-family: 'Montserrat', Arial, sans-serif;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 2px 8px #1976d244;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: #fff;
+  color: #1565c0;
+  text-decoration: underline;
+}
+
+/* Hero section styles */
+.hero {
+  background-color: rgba(0, 0, 0, 0.75);
+  margin: 60px auto 40px auto;      /* Add space above and below */
+  max-width: 600px;                 /* Limit width for readability */
+  padding: 40px 20px 40px 20px;     /* Padding inside the hero section */
+  text-align: center;               /* Center all text */
+  border-radius: 10px;
+}
+
+#short-footer {
+  background-color: #111;
+  color: #fff;
+  width: 100%;
+  padding: 12px 0;
+  text-align: center;
+  font-size: 1em;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+#home-page {
+  background: 
+    linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), /* Dark overlay */
+    url("img/wetlands.jpg");                        /* Background image */
+  background-size: cover;           /* Make the image cover the area */
+  background-position: center;
+}
+
 /* On small screens, make arrows full width and place them above/below timeline */
 @media (max-width: 768px) {
   .timeline {
@@ -309,71 +381,14 @@ h1 {
   }
 }
 
-/* Hero section styles */
-.hero {
-  background-color: rgba(0, 0, 0, 0.75);
-  margin: 60px auto 40px auto;      /* Add space above and below */
-  max-width: 600px;                 /* Limit width for readability */
-  padding: 40px 20px 40px 20px;     /* Padding inside the hero section */
-  text-align: center;               /* Center all text */
-  border-radius: 10px;
-}
+@media (max-width: 376px) {
+  .hero h1 {
+    font-size: 1.3em;            /* Smaller font size for mobile */
+    margin: 0px auto 8px auto;  /* Adjust margins for mobile */
+  }
 
-/* Hero section header */
-.hero h1 {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 2.3em;
-  color: #fff;
-  margin: 0px auto 12px auto;
-  text-shadow: 1px 2px 8px #1976d2;
-}
-
-/* Hero section description */
-.hero p {
-  font-size: 1.2em;
-  color: #e3eafc;
-  margin-bottom: 28px;
-}
-
-/* Call to action button */
-.cta-button {
-  display: inline-block;
-  padding: 14px 28px;
-  background-color: #1565c0;    /* Intel blue */
-  color: #fff;
-  font-size: 1.1em;
-  font-family: 'Montserrat', Arial, sans-serif;
-  border: none;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 2px 8px #1976d244;
-  transition: background 0.2s, color 0.2s;
-  cursor: pointer;
-}
-
-.cta-button:hover {
-  background-color: #fff;
-  color: #1565c0;
-  text-decoration: underline;
-}
-
-#short-footer {
-  background-color: #111;
-  color: #fff;
-  width: 100%;
-  padding: 12px 0;
-  text-align: center;
-  font-size: 1em;
-  left: 0;
-  bottom: 0;
-  position: fixed;
-}
-
-#home-page {
-  background: 
-    linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), /* Dark overlay */
-    url("img/cyber_sprout.png");                        /* Background image */
-  background-size: cover;           /* Make the image cover the area */
-  background-position: center;
+  .hero p {
+    font-size: 1em;              /* Smaller font size for mobile */
+    margin-bottom: 16px;         /* Adjust bottom margin for mobile */
+  }
 }
