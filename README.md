@@ -7,4 +7,4 @@ This is a website I built in a class collaboration with Intel in which we were i
 
 ∙🧭 A responsive navbar that changes into a dropdown on smaller devices
 
-∙📢 Intel reseach and marketing written by yours truly!
+∙📢 Intel research and marketing written by yours truly!
