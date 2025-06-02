@@ -31,6 +31,10 @@ body {
   background-position: center;
 }
 
+.box-container {
+  padding: 20px;
+}
+
 h1, h2, h3 {
   font-family: 'Montserrat', Arial, sans-serif; /* Use Montserrat for headings */
 }
