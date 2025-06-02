@@ -67,6 +67,14 @@ h1 {
     padding: 0 24px;
 }
 
+#tap-msg {
+  display: none;
+  background-color: #01c6fd;
+  font-size: 1.3em;
+  color: #111;
+  padding: 5px;
+}
+
 .timeline {
     display: flex;
     flex-direction: row;
@@ -82,6 +90,7 @@ h1 {
     -ms-overflow-style: none;   /* IE and Edge */
     padding: 10px;
 }
+
 .timeline::-webkit-scrollbar {
     display: none;              /* Chrome, Safari, Opera */
 }
@@ -355,6 +364,10 @@ h1 {
 
 /* On small screens, make arrows full width and place them above/below timeline */
 @media (max-width: 768px) {
+  #tap-msg {
+    display: block;
+  }
+
   .timeline {
     display: flex;
     flex-direction: column;
@@ -424,6 +437,7 @@ h1 {
   #timeline-footer {
     position: relative;
   }
+  
 }
 
 @media (max-width: 376px) {
