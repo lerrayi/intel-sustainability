@@ -70,7 +70,7 @@ h1 {
 #tap-msg {
   display: none;
   background-color: #01c6fd;
-  font-size: 1.3em;
+  font-size: 1.2em;
   color: #111;
   padding: 5px;
 }
@@ -98,7 +98,7 @@ h1 {
 .milestone {
     color: #111;                  /* Soft black text for readability */
     background-color: #ffffff;       /* Soft white card background */
-    border: 2px solid #90caf9;       /* Blue accent border */
+    border: 2px solid #01c6fd;       /* Blue accent border */
     padding: 20px;
     margin: 0 16px;
     max-width: 28%;
@@ -348,8 +348,8 @@ h1 {
 }
 
 .leader-quote {
-  border-top: 2px solid #90caf9; /* Blue top border for quotes */
-  border-bottom: 2px solid #90caf9; /* Blue bottom border for quotes */
+  border-top: 2px solid #01c6fd; /* Blue top border for quotes */
+  border-bottom: 2px solid #01c6fd; /* Blue bottom border for quotes */
   padding: 12px 20px;              /* Padding for quotes */
   margin: 16px 0px;
 }
