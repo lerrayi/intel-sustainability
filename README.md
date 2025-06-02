@@ -6,3 +6,5 @@ This is a website I built in a class collaboration with Intel in which we were i
 ∙🌍 An interactive timeline with horizontal snap scrolling on desktop and vertical scrolling on mobile
 
 ∙🧭 A responsive navbar that changes into a dropdown on smaller devices
+
+∙📢 Intel reseach and marketing written by yours truly!
