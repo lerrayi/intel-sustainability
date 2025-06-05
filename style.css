@@ -54,7 +54,7 @@ header {
     height: auto;
 }
 
-h1 {
+.highlight-text {
     text-align: center;
     font-size: 2.4em;                  /* Make the heading larger */
     font-weight: bold;                 /* Make the heading bold */
@@ -193,6 +193,7 @@ h1 {
   align-items: center;
   height: 100%;
   align-self: stretch;
+  list-style-type: none;
 }
 
 .navbar-content a {
@@ -296,7 +297,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-button.cta-button {
+.cta-button {
   display: inline-block;
   padding: 14px 28px;
   background-color: #1565c0;    /* Intel blue */
@@ -309,20 +310,15 @@ button.cta-button {
   cursor: pointer;
   border: none;
   transition: background 0.2s;
-}
-
-button.cta-button a {
   text-decoration: none;
   color: #fff;
   transition: color 0.2s;
 }
 
-button.cta-button:hover,
-button.cta-button:focus {
+.cta-button:hover,
+.cta-button:focus,
+.cta-button:active {
   background-color: #fff;
-}
-button.cta-button:hover a,
-button.cta-button:focus a {
   color: #1565c0;
   text-decoration: underline;
 }
@@ -359,6 +355,8 @@ button.cta-button:focus a {
 }
 
 .leader-quote {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.25em;
   border-top: 2px solid #01c6fd; /* Blue top border for quotes */
   border-bottom: 2px solid #01c6fd; /* Blue bottom border for quotes */
   padding: 12px 20px;              /* Padding for quotes */
@@ -370,6 +368,8 @@ button.cta-button:focus a {
 }
 
 #story-highlight {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.5em;
   text-shadow: 1px 2px 8px #1976d2;
 }
 
