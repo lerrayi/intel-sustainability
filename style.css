@@ -138,7 +138,7 @@ h1 {
 
 .milestone h2,
 .milestone h3,
-.milestone p, {
+.milestone p {
   color: #111; /* Make all text inside milestones soft black */
 }
 
