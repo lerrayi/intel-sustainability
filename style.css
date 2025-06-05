@@ -118,7 +118,8 @@ h1 {
 
 /* Make the milestone card expand slightly when hovered */
 .milestone:hover,
-.milestone:focus-within {
+.milestone:focus-within,
+.milestone:focus {
     transform: scale(1.04); /* Slightly increase size */
     z-index: 3;             /* Bring above other cards if overlapping */
 }
@@ -172,7 +173,8 @@ h1 {
 
 /* Show overlay on hover */
 .milestone:hover .description,
-.milestone:focus-within .description {
+.milestone:focus-within .description,
+.milestone:focus .description {
     opacity: 1;              /* Show overlay */
     pointer-events: auto;    /* Allow interaction if needed */
 }
@@ -203,9 +205,10 @@ h1 {
   transition: background 0.2s, color 0.2s;
 }
 
-.navbar-content a:hover {
-  color: #1565c0;               /* Blue text on hover */
-  background-color: #fff;       /* White background on hover for contrast */
+.navbar-content a:hover,
+.navbar-content a:focus {
+  color: #1565c0;               /* Blue text on hover/focus */
+  background-color: #fff;       /* White background on hover/focus for contrast */
   text-decoration: underline;
 }
 
@@ -293,25 +296,33 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Call to action button */
-.cta-button {
+button.cta-button {
   display: inline-block;
   padding: 14px 28px;
   background-color: #1565c0;    /* Intel blue */
-  color: #fff;
   font-size: 1.1em;
   font-family: 'Montserrat', Arial, sans-serif;
-  border: none;
   border-radius: 6px;
   text-decoration: none;
   font-weight: bold;
   box-shadow: 0 2px 8px #1976d244;
-  transition: background 0.2s, color 0.2s;
   cursor: pointer;
+  border: none;
+  transition: background 0.2s;
 }
 
-.cta-button:hover {
+button.cta-button a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.2s;
+}
+
+button.cta-button:hover,
+button.cta-button:focus {
   background-color: #fff;
+}
+button.cta-button:hover a,
+button.cta-button:focus a {
   color: #1565c0;
   text-decoration: underline;
 }

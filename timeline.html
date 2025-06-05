@@ -51,7 +51,7 @@
   <div class="timeline-arrows-container">
     <button id="arrow-left" aria-label="Scroll left" style="font-size:2em; background:#22272e; color:#fff; border:none; border-radius:50%; width:40px; height:40px; margin:10px; cursor:pointer;">&#8592;</button>
     <!-- Timeline Cards Section -->
-    <section class="timeline">
+    <section class="timeline" tabindex="0">
 
       <!-- Card 1: 1968 -->
       <div class="milestone">
@@ -59,7 +59,7 @@
         <h3>Intel Founded</h3>
         <img src="img/intel_founding.png" alt="An illustration of two men shaking hands in front of an American flag. There is a motherboard above them." />
         <p class="description">
-          Robert Noyce and Gordon Moore rename the newly formed company 
+          1968: Robert Noyce and Gordon Moore rename the newly formed company 
           NM Electronics to Intel Corporation, laying the foundation for 
           decades of technological innovation.
         </p>
@@ -71,7 +71,7 @@
         <h3>First Microprocessor</h3>
         <img src="img/4004_microprocessor.png" alt="An ilustration of a microprocessor with the label '4004.'" />
         <p class="description">
-          Intel debuts the 4004, the world's first commercial microprocessor, 
+          1971: Intel debuts the 4004, the world's first commercial microprocessor, 
           igniting the microprocessor revolution and propelling the future 
           of computing devices.
         </p>
@@ -83,7 +83,7 @@
         <h3>8086 Processor</h3>
         <img src="img/8086_microprocessor.png" alt="An illustration of many scientists inspecting and modifying an 8086 processor." />
         <p class="description">
-          Launch of the 8086 processor, establishing the x86 architecture 
+          1978: Launch of the 8086 processor, establishing the x86 architecture 
           that drives countless PCs and servers in the modern era.
         </p>
       </div>
@@ -94,7 +94,7 @@
         <h3>386 Processor</h3>
         <img src="img/386_microprocessor.png" alt="An image of scientists proudly launching a rocket with the label '386'." />
         <p class="description">
-          Intel introduces the 386 processor with 32-bit architecture, 
+          1985: Intel introduces the 386 processor with 32-bit architecture, 
           ushering in a new era of performance and multitasking for 
           personal computers.
         </p>
@@ -106,7 +106,7 @@
         <h3>Peak GHG Emissions</h3>
         <img src="img/ghg_peak.png" alt="An illustration of greenhouse gases emitting from a factory. There are computer parts in the foreground." />
         <p class="description">
-          This year marks Intel's highest annual greenhouse gas emissions 
+          2006: This year marks Intel's highest annual greenhouse gas emissions 
           for operations. Over subsequent years, Intel invests heavily in 
           chemical abatement, renewable energy, and energy-efficient 
           manufacturing to reverse this trend.
@@ -119,7 +119,7 @@
         <h3>RISE Strategy</h3>
         <img src="img/sustainability_pioneering.png" alt="An illustration of a man surrounded by various sustainability symbols." />
         <p class="description">
-          Intel launches its RISE (Responsible, Inclusive, Sustainable, 
+          2020: Intel launches its RISE (Responsible, Inclusive, Sustainable, 
           Enabling) strategy and 2030 goals, aiming to drive industry-wide 
           progress on climate action, water stewardship, and waste reduction.
         </p>
@@ -131,7 +131,7 @@
         <h3>Net-Zero By 2040</h3>
         <img src="img/net_zero.png" alt="An illustration of an Intel factory on green hills with the year '2040' beneath it." />
         <p class="description">
-          Intel announces its commitment to achieve net-zero greenhouse 
+          2022: Intel announces its commitment to achieve net-zero greenhouse 
           gas emissions (Scope 1 and 2) across its global operations 
           by 2040, building on years of environmental initiatives.
         </p>
@@ -143,7 +143,7 @@
         <h3>Renewable Electricity</h3>
         <img src="img/renewable.png" alt="An illustration of a giant PC being powered by solar and wind energy." />
         <p class="description">
-          The company achieves 99% renewable electricity usage worldwide, 
+          2023: The company achieves 99% renewable electricity usage worldwide, 
           helping to drastically lower carbon emissions and driving progress 
           toward Intel's long-term sustainability goals.
         </p>
@@ -155,7 +155,7 @@
         <h3>Sustainability Summit</h3>
         <img src="img/summit.png" alt="An illustration of leaders discussing how to improve semiconductors." />
         <p class="description">
-          Intel hosts its first Sustainability Summit, uniting suppliers, 
+          2024: Intel hosts its first Sustainability Summit, uniting suppliers, 
           government officials, and industry leaders to collaborate on 
           next-generation sustainable semiconductor manufacturing.
         </p>
@@ -193,6 +193,58 @@
     rightBtn.onclick = function() {
       timeline.scrollBy({ left: getMilestoneWidth(), behavior: 'smooth' });
     };
+
+    // Track the currently focused milestone index
+    let focusedIndex = 0;
+
+    // Helper to focus a milestone by index
+    function focusMilestone(idx) {
+      if (milestones.length === 0) return;
+      // Clamp index
+      focusedIndex = Math.max(0, Math.min(idx, milestones.length - 1));
+      milestones[focusedIndex].focus();
+      milestones[focusedIndex].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+
+    // Make milestones only programmatically focusable (not tabbable)
+    milestones.forEach(m => m.setAttribute('tabindex', '-1'));
+
+    // Utility to get all focusable elements in the document
+    function getFocusableElements() {
+      return Array.from(document.querySelectorAll(
+        'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+      )).filter(el => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden'));
+    }
+
+    // Keyboard navigation for timeline
+    timeline.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowLeft') {
+        if (focusedIndex > 0) {
+          focusMilestone(focusedIndex - 1);
+        } else {
+          leftBtn.click();
+        }
+        e.preventDefault();
+      } else if (e.key === 'ArrowRight') {
+        if (focusedIndex < milestones.length - 1) {
+          focusMilestone(focusedIndex + 1);
+        } else {
+          rightBtn.click();
+        }
+        e.preventDefault();
+      }
+      // Do not handle Tab here; handled on milestone elements
+    });
+
+    // Keep only the focus tracking for mouse/programmatic focus
+    milestones.forEach((m, idx) => {
+      m.addEventListener('focus', () => { focusedIndex = idx; });
+    });
+
+    // Update focusedIndex when a milestone is focused by mouse/tab
+    milestones.forEach((m, idx) => {
+      m.addEventListener('focus', () => { focusedIndex = idx; });
+    });
   </script>
 </body>
 </html>
