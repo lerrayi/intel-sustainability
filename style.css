@@ -79,8 +79,8 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    width: 100%;
-    max-width: 800px;
+    width: 708px; /* 3 * (220px milestone + 16px*2 margin) = 708px */
+    max-width: 708px;
     overflow-x: auto;
     overflow-y: visible;
     scroll-snap-type: x mandatory;
@@ -101,9 +101,11 @@ header {
     border: 2px solid #01c6fd;       /* Blue accent border */
     padding: 20px;
     margin: 0 16px;
-    max-width: 28%;
-    min-width: 250px;
-    min-height: 250px;
+    width: 220px;
+    min-width: 220px;
+    max-width: 220px;
+    min-height: 300px;
+    max-height: 360px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -373,6 +375,28 @@ header {
   text-shadow: 1px 2px 8px #1976d2;
 }
 
+/* Always keep story page text white, even in RTL mode */
+#story-page,
+#story-page * {
+  color: #fff !important;
+}
+
+#arrow-left, #arrow-right {
+  font-size:2em;
+  background: none;
+  color:#fff;
+  width:40px;
+  height:40px;
+  margin:10px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 50%;
+  border: none;
+  background: #111;
+}
+
 /* On small screens, make arrows full width and place them above/below timeline */
 @media (max-width: 768px) {
   #tap-msg {
@@ -385,6 +409,7 @@ header {
     justify-content: center;
     align-items: center;
     width: 90%;
+    max-width: 100vw;
     overflow: hidden;
   }
 
@@ -396,10 +421,11 @@ header {
   .milestone {
     margin: 16px 0;
     width: 100%;
-    max-width: none;
-    min-width: 0;
+    max-width: 250px;
+    min-width: 160px;
+    min-height: 220px;
+    max-height: 360px;
   }
-
   .navbar {
     position: relative;
     margin-left: auto;
