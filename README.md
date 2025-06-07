@@ -1,5 +1,5 @@
 # 🌿 Intel's Sustainability Journey
-This is a website I built in a class collaboration with Intel in which we were instructed to make a demonstration of Intel's sustainability journey. This is the first website I've built after fully understanding the concept of *responsive* or *mobile-first* design. This is also my first work in corporate writing and marketing, as I did a lot of my own research to enhance this project. Here's a list of things I implemented in this website:
+This is a website I built in a class collaboration with Intel in which we were instructed to make a demonstration of Intel's sustainability journey. This is the first website I've built after fully understanding the concept of *responsive* or *mobile-first* design. This is also my first work in corporate writing and marketing, as I did a lot of my own research to enhance this project. Here's a list of things I've implemented:
 
 ## 📱 Responsiveness:
 
