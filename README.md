@@ -11,13 +11,9 @@ This is a website I built in a class collaboration with Intel in which we were i
 
 ∙ Colorblind-tested with help from [Toptal's colorblind filter](https://www.toptal.com/designers/colorfilter)
 
-∙ High-contrast colors for low vision
-
 ∙ Fully keyboard navigable with added arrow navigation on milestones
 
 ∙ Proper semantic organization for screen readers
-
-∙ Alt text on all images
 
 ## 🗺️ Localization:
 
