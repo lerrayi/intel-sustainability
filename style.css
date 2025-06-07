@@ -40,6 +40,7 @@ h1, h2, h3 {
 }
 
 header {
+  height: 80px;
   background-color: #111;      /* Soft black for header */
   display: flex;                  /* Use flexbox for horizontal layout */
   align-items: center;            /* Vertically center items */
@@ -139,6 +140,10 @@ header {
   text-shadow: 1px 1px 2px #1976d2;
 }
 
+.milestone h3 {
+  font-size: 1.2em;
+}
+
 .milestone h2,
 .milestone h3,
 .milestone p {
@@ -179,6 +184,16 @@ header {
 .milestone:focus .description {
     opacity: 1;              /* Show overlay */
     pointer-events: auto;    /* Allow interaction if needed */
+}
+
+#subscription-invitation {
+  text-align: left;
+  color: #111;
+  max-width: 708px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: #fff;
+  border: 2px solid #01c6fd;
 }
 
 .navbar {
@@ -243,13 +258,10 @@ header {
   font-size: 1em;
   left: 0;
   bottom: 0;
+  height: 50px;
 }
 
 #short-footer {
-  position: fixed;
-}
-
-#timeline-footer {
   position: fixed;
 }
 
