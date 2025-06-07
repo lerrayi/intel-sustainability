@@ -175,41 +175,11 @@
   <section id="subscription-invitation">
     <h2>Want to learn more?</h2>
     <p>Subscribe to our sustainability newsletter and follow Intel as we shape a more livable future.</p>
-    <!-- Subscribe Button -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#subscribeModal">
-      Subscribe
-    </button>
+    <label for="email-input">Email Address:</label>
+    <input type="email" id="email-input" placeholder="Enter your email" required>
   </section>
 
-  <footer id="footer">All rights reserved. Powered by Github Pages.</footer>
-
-  <!-- Subscribe Modal -->
-  <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <form>
-          <div class="modal-header">
-            <h5 class="modal-title" id="subscribeModalLabel">Subscribe for Updates</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-              <div class="mb-3">
-                <label for="subscriber-name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="subscriber-name" placeholder="Your Name" required>
-              </div>
-              <div class="mb-3">
-                <label for="subscriber-email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="subscriber-email" placeholder="name@example.com" required>
-              </div>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Subscribe</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+  <footer id="timeline-footer">All rights reserved. Powered by Github Pages.</footer>
 
   <!-- Bootstrap JS Bundle (for modal functionality) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
