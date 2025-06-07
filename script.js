@@ -47,3 +47,85 @@ const observer = new MutationObserver((mutationsList) => {
 
 observer.observe(document.documentElement, { attributes: true });
 
+// Loading overlay hide logic
+window.addEventListener('load', function() {
+  const overlay = document.getElementById('page-loading-overlay');
+  if (overlay) {
+    overlay.style.opacity = '0';
+    setTimeout(() => overlay.style.display = 'none', 300);
+  }
+});
+
+// Timeline navigation and accessibility logic (only runs if timeline exists)
+document.addEventListener('DOMContentLoaded', function() {
+  const timeline = document.querySelector('.timeline');
+  const milestones = document.querySelectorAll('.milestone');
+  const leftBtn = document.getElementById('arrow-left');
+  const rightBtn = document.getElementById('arrow-right');
+
+  if (!timeline || milestones.length === 0) return;
+
+  // Find the width of one milestone (including margin)
+  function getMilestoneWidth() {
+    if (milestones.length === 0) return 300;
+    const style = getComputedStyle(milestones[0]);
+    const width = milestones[0].offsetWidth;
+    const margin = parseInt(style.marginLeft) + parseInt(style.marginRight);
+    return width + margin;
+  }
+
+  // Scroll left by one milestone
+  if (leftBtn) {
+    leftBtn.onclick = function() {
+      timeline.scrollBy({ left: -getMilestoneWidth(), behavior: 'smooth' });
+    };
+  }
+
+  // Scroll right by one milestone
+  if (rightBtn) {
+    rightBtn.onclick = function() {
+      timeline.scrollBy({ left: getMilestoneWidth(), behavior: 'smooth' });
+    };
+  }
+
+  // Track the currently focused milestone index
+  let focusedIndex = 0;
+
+  // Helper to focus a milestone by index
+  function focusMilestone(idx) {
+    if (milestones.length === 0) return;
+    // Clamp index
+    focusedIndex = Math.max(0, Math.min(idx, milestones.length - 1));
+    milestones[focusedIndex].focus();
+    milestones[focusedIndex].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  }
+
+  // Make milestones only programmatically focusable (not tabbable)
+  milestones.forEach(m => m.setAttribute('tabindex', '-1'));
+
+  // Keyboard navigation for timeline
+  timeline.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft') {
+      if (focusedIndex > 0) {
+        focusMilestone(focusedIndex - 1);
+      } else if (leftBtn) {
+        leftBtn.click();
+      }
+      e.preventDefault();
+    } else if (e.key === 'ArrowRight') {
+      if (focusedIndex < milestones.length - 1) {
+        focusMilestone(focusedIndex + 1);
+      } else if (rightBtn) {
+        rightBtn.click();
+      }
+      e.preventDefault();
+    }
+    // Do not handle Tab here; handled on milestone elements
+  });
+
+  // Keep only the focus tracking for mouse/programmatic focus
+  milestones.forEach((m, idx) => {
+    m.addEventListener('focus', () => { focusedIndex = idx; });
+  });
+});
+
