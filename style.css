@@ -196,6 +196,16 @@ header {
   border: 2px solid #01c6fd;
 }
 
+.initiative {
+  width: 220px;
+  text-align: left;
+  color: #111;
+  border-radius: 10px;
+  background-color: #fff;
+  border: 2px solid #01c6fd;
+  margin-right: 16px;
+}
+
 .navbar {
   position: relative;           /* Needed for dropdown positioning */
   display: flex;                /* Use flex to allow stretching */
