@@ -13,7 +13,7 @@ This is a website I built in a class collaboration with Intel in which we were i
 
 ∙ Fully keyboard navigable with added arrow navigation on milestones
 
-∙ Proper semantic organization for screen readers
+∙ Proper semantic organization and aria labels for screen reader support
 
 ## 🗺️ Localization:
 
