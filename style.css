@@ -14,10 +14,6 @@ body {
   letter-spacing: 1px;
 }
 
-footer > * {
-  display: inline;
-}
-
 #timeline-page, #story-page {
   background: 
       linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), /* Dark overlay */
@@ -253,7 +249,11 @@ header {
   font-weight: 500;
 }
 
-#footer, #short-footer, #timeline-footer {
+footer > * {
+  display: inline;
+}
+
+footer {
   background-color: #111;
   color: #fff;
   width: 100%;
@@ -262,11 +262,13 @@ header {
   font-size: 1em;
   left: 0;
   bottom: 0;
-  height: 50px;
+  min-height: 50px;
+  z-index: 9999;
 }
 
 #short-footer {
   position: fixed;
+  z-index: 9999;
 }
 
 .custom-blue-btn {
@@ -424,6 +426,12 @@ header {
   border-radius: 50%;
   border: none;
   background: #111;
+}
+
+@media (max-width: 1025px) {
+  #timeline-footer {
+    position: fixed;
+  }
 }
 
 /* On small screens, make arrows full width and place them above/below timeline */
