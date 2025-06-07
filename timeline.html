@@ -175,7 +175,7 @@
     <section id="subscription-invitation" class="my-2 p-4">
       <div class="text-center">
         <h3 class="mb-3">Want to learn more?</h3>
-        <p class="mb-3">Sign up for our Sustainability newsletter to follow us on our journey to a greener future.</p>
+        <p class="mb-3">Sign up for our sustainability newsletter to follow us on our journey to a greener future.</p>
       </div>
       <form>
         <div class="mb-3">
@@ -191,13 +191,37 @@
             <label class="form-check-label" for="check-understanding">I understand that this is simply a placeholder form.</label>
           </div>
         <div class="d-flex justify-content-center">
-          <button type="submit" class="btn btn-primary text-center" style="background-color: #1565c0">Submit</button>
+          <button type="submit" class="custom-blue-btn">Submit</button>
         </div>
       </form>
     </section>
   </div>
 
-  <footer id="timeline-footer">All rights reserved. Powered by Github Pages.</footer>
+  <footer id="timeline-footer">
+    <i aria-label="Copyright">©</i>
+    <p>2025 Intel Corporation. </p>
+    <a href="#" role="button" data-bs-toggle="modal" data-bs-target="#privacy-policy">Privacy policy.</a>
+    <p>Powered by Github Pages.</p>
+  </footer>
+
+  <div class="modal fade" id="privacy-policy" tabindex="-1" aria-labelledby="privacy-policy-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-white">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Privacy Statement</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>None of your data is collected by Intel or the developer of this website.</p>
+          <p>This is a student design concept for an Intel collaboration.</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="custom-blue-btn" data-bs-dismiss="modal">I understand</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
   <script>

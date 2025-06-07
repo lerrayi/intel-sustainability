@@ -249,7 +249,11 @@ header {
   font-weight: 500;
 }
 
-#footer, #short-footer, #timeline-footer {
+footer > * {
+  display: inline;
+}
+
+footer {
   background-color: #111;
   color: #fff;
   width: 100%;
@@ -258,11 +262,28 @@ header {
   font-size: 1em;
   left: 0;
   bottom: 0;
-  height: 50px;
+  min-height: 50px;
+  z-index: 9999;
 }
 
 #short-footer {
   position: fixed;
+  z-index: 9999;
+}
+
+.custom-blue-btn {
+  background-color: #01c6fd;
+  color: #111;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.custom-blue-btn:hover,
+.custom-blue-btn:focus {
+  color: #01c6fd;
+  background-color: #111;
+  text-decoration: underline;
 }
 
 /* Style for the timeline arrow buttons */
@@ -387,10 +408,8 @@ header {
   text-shadow: 1px 2px 8px #1976d2;
 }
 
-/* Always keep story page text white, even in RTL mode */
-#story-page,
-#story-page * {
-  color: #fff !important;
+#story-block > * {
+  color: white;
 }
 
 #arrow-left, #arrow-right {
@@ -407,6 +426,12 @@ header {
   border-radius: 50%;
   border: none;
   background: #111;
+}
+
+@media (max-width: 1025px) {
+  #timeline-footer {
+    position: fixed;
+  }
 }
 
 /* On small screens, make arrows full width and place them above/below timeline */
