@@ -28,4 +28,5 @@ This is a website I built in a class collaboration with Intel in which we were i
 ## 💡 Bootstrap:
 
 ∙ Modal classes used for privacy notice popup
+
 ∙ Form classes used for newsletter subscription
