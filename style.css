@@ -23,6 +23,17 @@ body {
     background-repeat: no-repeat;
 }
 
+
+#story-page p,
+#story-page .initiative p {
+  font-size: 1.2em;
+}
+
+#story-page h4,
+#story-page .initiative h4 {
+  font-size: 1.5em;
+}
+
 #home-page {
   background: 
     linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), /* Dark overlay */
@@ -35,7 +46,7 @@ body {
   padding: 20px;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: 'Montserrat', Arial, sans-serif; /* Use Montserrat for headings */
 }
 
@@ -197,13 +208,12 @@ header {
 }
 
 .initiative {
-  width: 220px;
   text-align: left;
-  color: #111;
+  background-color: rgba(0, 0, 0, 0.75);
   border-radius: 10px;
-  background-color: #fff;
-  border: 2px solid #01c6fd;
-  margin-right: 16px;
+  color: #fff;
+  max-width: 300px;
+  padding: 20px;
 }
 
 .navbar {
@@ -380,7 +390,7 @@ footer {
 
 .story {
   background-color: rgba(0, 0, 0, 0.75);
-  margin: 50px auto;                /* Center with space above/below */
+  margin: 50px auto 0px auto;
   max-width: 800px;                 /* Limit width for readability */
   border-radius: 20px;
   padding-bottom: 16px;
