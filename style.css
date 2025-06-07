@@ -186,6 +186,15 @@ header {
     pointer-events: auto;    /* Allow interaction if needed */
 }
 
+#subscription-invitation {
+  text-align: left;
+  color: #111;
+  max-width: 708px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
 .navbar {
   position: relative;           /* Needed for dropdown positioning */
   display: flex;                /* Use flex to allow stretching */
@@ -252,10 +261,6 @@ header {
 }
 
 #short-footer {
-  position: fixed;
-}
-
-#timeline-footer {
   position: fixed;
 }
 
