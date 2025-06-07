@@ -40,6 +40,7 @@ h1, h2, h3 {
 }
 
 header {
+  height: 80px;
   background-color: #111;      /* Soft black for header */
   display: flex;                  /* Use flexbox for horizontal layout */
   align-items: center;            /* Vertically center items */
@@ -137,6 +138,10 @@ header {
 
 .milestone h2 {
   text-shadow: 1px 1px 2px #1976d2;
+}
+
+.milestone h3 {
+  font-size: 1.2em;
 }
 
 .milestone h2,
@@ -243,6 +248,7 @@ header {
   font-size: 1em;
   left: 0;
   bottom: 0;
+  height: 50px;
 }
 
 #short-footer {
