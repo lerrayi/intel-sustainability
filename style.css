@@ -144,6 +144,10 @@ header {
   color: #111; /* Make all text inside milestones soft black */
 }
 
+.milestone h3 {
+  font-size: 1.2em;
+}
+
 .milestone h2 {
     font-size: 2em;                /* Larger font for milestone titles */
 }
