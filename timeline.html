@@ -17,6 +17,22 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body id="timeline-page">
+  <!-- Loading overlay -->
+  <div id="page-loading-overlay" style="
+    position:fixed;
+    z-index:9999;
+    inset:0;
+    background:#1565c0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:opacity 0.3s;
+  ">
+    <img src="img/intel-header-logo.svg" alt="Intel Logo" style="height:48px;width:auto;margin-right:24px;">
+    <div class="spinner-border text-white" role="status" style="width:3rem;height:3rem;">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
 
   <!-- Header / Hero Section -->
   <header>
@@ -222,85 +238,67 @@
     </div>
   </div>
 
+  <!-- Skeleton loading template for timeline milestones -->
+  <template id="skeleton-template">
+    <section class="timeline" tabindex="0">
+      <div class="milestone placeholder-glow">
+        <h2 class="placeholder col-4"></h2>
+        <h3 class="placeholder col-6"></h3>
+        <div class="placeholder col-12" style="height:120px;"></div>
+        <p class="description placeholder col-8"></p>
+      </div>
+      <div class="milestone placeholder-glow">
+        <h2 class="placeholder col-4"></h2>
+        <h3 class="placeholder col-6"></h3>
+        <div class="placeholder col-12" style="height:120px;"></div>
+        <p class="description placeholder col-8"></p>
+      </div>
+      <div class="milestone placeholder-glow">
+        <h2 class="placeholder col-4"></h2>
+        <h3 class="placeholder col-6"></h3>
+        <div class="placeholder col-12" style="height:120px;"></div>
+        <p class="description placeholder col-8"></p>
+      </div>
+      <div class="milestone placeholder-glow">
+        <h2 class="placeholder col-4"></h2>
+        <h3 class="placeholder col-6"></h3>
+        <div class="placeholder col-12" style="height:120px;"></div>
+        <p class="description placeholder col-8"></p>
+      </div>
+      <div class="milestone placeholder-glow">
+        <h2 class="placeholder col-4"></h2>
+        <h3 class="placeholder col-6"></h3>
+        <div class="placeholder col-12" style="height:120px;"></div>
+        <p class="description placeholder col-8"></p>
+      </div>
+      <div class="milestone placeholder-glow">
+        <h2 class="placeholder col-4"></h2>
+        <h3 class="placeholder col-6"></h3>
+        <div class="placeholder col-12" style="height:120px;"></div>
+        <p class="description placeholder col-8"></p>
+      </div>
+      <div class="milestone placeholder-glow">
+        <h2 class="placeholder col-4"></h2>
+        <h3 class="placeholder col-6"></h3>
+        <div class="placeholder col-12" style="height:120px;"></div>
+        <p class="description placeholder col-8"></p>
+      </div>
+      <div class="milestone placeholder-glow">
+        <h2 class="placeholder col-4"></h2>
+        <h3 class="placeholder col-6"></h3>
+        <div class="placeholder col-12" style="height:120px;"></div>
+        <p class="description placeholder col-8"></p>
+      </div>
+      <div class="milestone placeholder-glow">
+        <h2 class="placeholder col-4"></h2>
+        <h3 class="placeholder col-6"></h3>
+        <div class="placeholder col-12" style="height:120px;"></div>
+        <p class="description placeholder col-8"></p>
+      </div>
+    </section>
+  </template>
+
   <script src="script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-  <script>
-    // Get the timeline container and milestone cards
-    const timeline = document.querySelector('.timeline');
-    const milestones = document.querySelectorAll('.milestone');
-    const leftBtn = document.getElementById('arrow-left');
-    const rightBtn = document.getElementById('arrow-right');
-
-    // Find the width of one milestone (including margin)
-    function getMilestoneWidth() {
-      if (milestones.length === 0) return 300;
-      const style = getComputedStyle(milestones[0]);
-      const width = milestones[0].offsetWidth;
-      const margin = parseInt(style.marginLeft) + parseInt(style.marginRight);
-      return width + margin;
-    }
-
-    // Scroll left by one milestone
-    leftBtn.onclick = function() {
-      timeline.scrollBy({ left: -getMilestoneWidth(), behavior: 'smooth' });
-    };
-
-    // Scroll right by one milestone
-    rightBtn.onclick = function() {
-      timeline.scrollBy({ left: getMilestoneWidth(), behavior: 'smooth' });
-    };
-
-    // Track the currently focused milestone index
-    let focusedIndex = 0;
-
-    // Helper to focus a milestone by index
-    function focusMilestone(idx) {
-      if (milestones.length === 0) return;
-      // Clamp index
-      focusedIndex = Math.max(0, Math.min(idx, milestones.length - 1));
-      milestones[focusedIndex].focus();
-      milestones[focusedIndex].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-    }
-
-    // Make milestones only programmatically focusable (not tabbable)
-    milestones.forEach(m => m.setAttribute('tabindex', '-1'));
-
-    // Utility to get all focusable elements in the document
-    function getFocusableElements() {
-      return Array.from(document.querySelectorAll(
-        'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
-      )).filter(el => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden'));
-    }
-
-    // Keyboard navigation for timeline
-    timeline.addEventListener('keydown', function(e) {
-      if (e.key === 'ArrowLeft') {
-        if (focusedIndex > 0) {
-          focusMilestone(focusedIndex - 1);
-        } else {
-          leftBtn.click();
-        }
-        e.preventDefault();
-      } else if (e.key === 'ArrowRight') {
-        if (focusedIndex < milestones.length - 1) {
-          focusMilestone(focusedIndex + 1);
-        } else {
-          rightBtn.click();
-        }
-        e.preventDefault();
-      }
-      // Do not handle Tab here; handled on milestone elements
-    });
-
-    // Keep only the focus tracking for mouse/programmatic focus
-    milestones.forEach((m, idx) => {
-      m.addEventListener('focus', () => { focusedIndex = idx; });
-    });
-
-    // Update focusedIndex when a milestone is focused by mouse/tab
-    milestones.forEach((m, idx) => {
-      m.addEventListener('focus', () => { focusedIndex = idx; });
-    });
-  </script>
 </body>
 </html>

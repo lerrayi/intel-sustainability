@@ -17,6 +17,22 @@
   <!-- Bootstrap RTL (disabled by default) -->
 </head>
 <body id="home-page">
+  <!-- Loading overlay -->
+  <div id="page-loading-overlay" style="
+    position:fixed;
+    z-index:9999;
+    inset:0;
+    background:#1565c0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:opacity 0.3s;
+  ">
+    <img src="img/intel-header-logo.svg" alt="Intel Logo" style="height:48px;width:auto;margin-right:24px;">
+    <div class="spinner-border text-white" role="status" style="width:3rem;height:3rem;">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
   <!-- Header section with logo and navbar -->
   <header>
     <!-- Logo links to Intel's website -->
