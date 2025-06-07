@@ -44,7 +44,6 @@ header {
   display: flex;                  /* Use flexbox for horizontal layout */
   align-items: center;            /* Vertically center items */
   justify-content: space-between; /* Space between logo and navbar */
-  position: relative;
   width: 100%;                    /* Make header stretch full viewport width */
   padding: 10px;
 }
@@ -181,7 +180,7 @@ header {
     pointer-events: auto;    /* Allow interaction if needed */
 }
 
-.navbar {
+.navbar-basic {
   position: relative;           /* Needed for dropdown positioning */
   display: flex;                /* Use flex to allow stretching */
   height: 100%;                 /* Make navbar fill header height */
