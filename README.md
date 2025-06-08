@@ -26,3 +26,5 @@ This is a website I built in a class collaboration with Intel in which we were i
 ∙ Modal classes used for privacy notice popup
 
 ∙ Form classes used for newsletter subscription
+
+∙ Bootstrap grid for cleaner responsive designs
