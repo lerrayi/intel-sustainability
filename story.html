@@ -13,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="img/intel-favicon.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.4/font/bootstrap-icons.min.css">
   <!-- Bootstrap RTL (disabled by default) -->
 </head>
 <body id="story-page">
@@ -78,11 +79,51 @@
       </section>
     </main>
   </div>
+
+  <div class="container">
+    <section class="row justify-content-center">
+      <article class="initiative col-lg-4 col-md-6 col-sm-10 m-3 mb-4">
+        <h2><i class="bi bi-tree-fill" aria-hidden="true"></i> RISE Strategy</h2>
+        <p>
+          Under its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy, 
+          Intel sets ambitious 2030 goals, including driving industry-wide 
+          progress on climate action, water stewardship, and waste reduction.
+        </p>
+        <!-- Learn More Button -->
+        <a href="https://www.intel.com/content/www/us/en/corporate-responsibility/2030-goals.html" class="cta-button" style="font-size: 0.9em;" aria-label="Learn more about RISE">Learn More</a>
+      </article>
+
+      <!-- Column 2 -->
+      <article class="initiative col-lg-4 col-md-6 col-sm-12 m-3 mb-4">
+        <h2><i class="bi bi-clipboard-data-fill" aria-hidden="true""></i> Commitment</h2>
+        <p>
+          In 2022, Intel pledged to achieve net-zero greenhouse gas emissions 
+          (Scope 1 and 2) by 2040. This commitment builds on decades of 
+          environmental initiatives and partnerships across the semiconductor 
+          industry.
+        </p>
+        <!-- Learn More Button -->
+        <a href="https://www.intc.com/news-events/press-releases/detail/1539/intel-commits-to-net-zero-greenhouse-gas-emissions-in-its" class="cta-button" style="font-size: 0.9em;" aria-label="Learn more about net-zero greenhouse gas emissions">Learn More</a>
+      </article>
+
+      <article class="initiative col-lg-4 col-md-6 col-sm-10 m-3 mb-4">
+        <h2><i class="bi bi-droplet-fill" aria-hidden="true"></i> Water &amp; Waste</h2>
+        <p>
+          Intel conserves billions of gallons of water annually and 
+          collaborates with local communities to restore watersheds.
+          Intel also upcycles and recycles materials to reduce waste and 
+          advance a circular economy.
+        </p>
+        <!-- Learn More Button -->
+        <a href="https://www.intel.com/content/www/us/en/environment/restore-water-goal-report.html" class="cta-button" style="font-size: 0.9em;" aria-label="Learn more about water and waste">Learn More</a>
+      </article>
+    </section>
+  </div>
   <!-- Footer section -->
   <footer id="footer">
     <i aria-label="Copyright">©</i>
     <p>2025 Intel Corporation. </p>
-    <a href="#" role="button" data-bs-toggle="modal" data-bs-target="#privacy-policy">Privacy policy.</a>
+    <a role="button" id="privacy-link" data-bs-toggle="modal" data-bs-target="#privacy-policy" tabindex="0" style="text-decoration: underline;">Privacy policy.</a>
     <p>Powered by Github Pages.</p>
   </footer>
 

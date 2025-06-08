@@ -23,6 +23,20 @@ body {
     background-repeat: no-repeat;
 }
 
+
+#story-page p,
+#story-page .initiative p {
+  font-size: 1.2em;
+}
+
+#story-page .initiative h2 {
+  font-size: 1.5em;
+}
+
+#story-page footer > * {
+  font-size: 1em;
+}
+
 #home-page {
   background: 
     linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), /* Dark overlay */
@@ -35,7 +49,7 @@ body {
   padding: 20px;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: 'Montserrat', Arial, sans-serif; /* Use Montserrat for headings */
 }
 
@@ -196,6 +210,15 @@ header {
   border: 2px solid #01c6fd;
 }
 
+.initiative {
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  color: #fff;
+  max-width: 300px;
+  padding: 20px;
+}
+
 .navbar {
   position: relative;           /* Needed for dropdown positioning */
   display: flex;                /* Use flex to allow stretching */
@@ -264,6 +287,11 @@ footer {
   bottom: 0;
   min-height: 50px;
   z-index: 9999;
+}
+
+#privacy-link:hover,
+#privacy-link:focus {
+  color: #01c6fd;
 }
 
 #short-footer {
@@ -370,7 +398,7 @@ footer {
 
 .story {
   background-color: rgba(0, 0, 0, 0.75);
-  margin: 50px auto;                /* Center with space above/below */
+  margin: 50px auto 0px auto;
   max-width: 800px;                 /* Limit width for readability */
   border-radius: 20px;
   padding-bottom: 16px;
