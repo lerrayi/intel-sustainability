@@ -201,7 +201,6 @@ header {
 }
 
 #subscription-invitation {
-  text-align: left;
   color: #111;
   max-width: 708px;
   margin: 0 auto;
@@ -211,7 +210,6 @@ header {
 }
 
 .initiative {
-  text-align: left;
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 10px;
   color: #fff;

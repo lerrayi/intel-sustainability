@@ -1,3 +1,38 @@
+function setTimelineArrowDirection(isRTL) {
+  const leftBtn = document.getElementById('arrow-left');
+  const rightBtn = document.getElementById('arrow-right');
+  const leftIcon = document.getElementById('arrow-left-icon');
+  const rightIcon = document.getElementById('arrow-right-icon');
+  if (!leftBtn || !rightBtn || !leftIcon || !rightIcon) return;
+
+  // Remove all icon classes first
+  leftIcon.className = 'bi';
+  rightIcon.className = 'bi';
+
+  if (isRTL) {
+    leftIcon.classList.add('bi-chevron-right');
+    rightIcon.classList.add('bi-chevron-left');
+    leftBtn.onclick = function() { scrollTimeline(1); };
+    rightBtn.onclick = function() { scrollTimeline(-1); };
+  } else {
+    leftIcon.classList.add('bi-chevron-left');
+    rightIcon.classList.add('bi-chevron-right');
+    leftBtn.onclick = function() { scrollTimeline(-1); };
+    rightBtn.onclick = function() { scrollTimeline(1); };
+  }
+}
+
+function scrollTimeline(direction) {
+  const timeline = document.querySelector('.timeline');
+  const milestones = document.querySelectorAll('.milestone');
+  if (!timeline || milestones.length === 0) return;
+  const style = getComputedStyle(milestones[0]);
+  const width = milestones[0].offsetWidth;
+  const margin = parseInt(style.marginLeft) + parseInt(style.marginRight);
+  const scrollAmount = width + margin;
+  timeline.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+}
+
 function toggleBootstrapRTLSupport() {
   // Try getting the language set on the HTML tag; if not available, get it from the navigator.
   let currentLang = document.documentElement.lang || navigator.language || navigator.userLanguage;
@@ -30,6 +65,9 @@ function toggleBootstrapRTLSupport() {
       bootstrapRTLLink.remove();
     }
   }
+
+  // Update timeline arrows and direction
+  setTimelineArrowDirection(isRTL);
 }
 
 // Initialize RTL detection when the DOM is fully loaded.
@@ -105,18 +143,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Keyboard navigation for timeline
   timeline.addEventListener('keydown', function(e) {
+    // Detect current direction
+    const isRTL = document.documentElement.dir === 'rtl';
     if (e.key === 'ArrowLeft') {
-      if (focusedIndex > 0) {
-        focusMilestone(focusedIndex - 1);
-      } else if (leftBtn) {
-        leftBtn.click();
+      if (isRTL) {
+        // ArrowLeft means scroll right in RTL
+        if (focusedIndex < milestones.length - 1) {
+          focusMilestone(focusedIndex + 1);
+        } else {
+          document.getElementById('arrow-right')?.click();
+        }
+      } else {
+        if (focusedIndex > 0) {
+          focusMilestone(focusedIndex - 1);
+        } else {
+          document.getElementById('arrow-left')?.click();
+        }
       }
       e.preventDefault();
     } else if (e.key === 'ArrowRight') {
-      if (focusedIndex < milestones.length - 1) {
-        focusMilestone(focusedIndex + 1);
-      } else if (rightBtn) {
-        rightBtn.click();
+      if (isRTL) {
+        // ArrowRight means scroll left in RTL
+        if (focusedIndex > 0) {
+          focusMilestone(focusedIndex - 1);
+        } else {
+          document.getElementById('arrow-left')?.click();
+        }
+      } else {
+        if (focusedIndex < milestones.length - 1) {
+          focusMilestone(focusedIndex + 1);
+        } else {
+          document.getElementById('arrow-right')?.click();
+        }
       }
       e.preventDefault();
     }
