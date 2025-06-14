@@ -16,7 +16,7 @@ body {
 
 #timeline-page, #story-page {
   background: 
-      linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), /* Dark overlay */
+      linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), /* Dark overlay */
       url("img/cyber_sprout.png");                        /* Background image */
     background-size: cover;           /* Make the image cover the area */
     background-position: center;
@@ -261,8 +261,6 @@ header {
 
 #intro {
   font-size: 1.3em;
-  /* Remove background color and border radius for a transparent look */
-  background: none;
   color: #fff;                  /* White text for intro */
   padding: 18px 24px;
   margin: 0px auto 4px auto;  /* Center and add space above/below */
